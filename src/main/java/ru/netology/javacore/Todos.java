@@ -24,20 +24,22 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        Collections.sort(tasks, new Comparator<String>() {
-            public int compare(String o1, String o2) {
-                return o1.toString().compareTo(o2.toString());
+        tasks.sort((String o1, String o2) -> o1.toString().compareTo(o2.toString()));
+        String actualTasks = "";
+        for (String task : tasks) {
+            if (task != tasks.get(tasks.size() - 1)) {
+                actualTasks += task + " ";
+            } else {
+                actualTasks += task;
             }
-        });
-        String newTasks = tasks.toString();
-        String actualTasks = newTasks.replaceAll("[\\[\\]]", "");
+        }
         return actualTasks;
     }
 
     public String toString() {
         StringBuilder stb = new StringBuilder();
         for (int i = 0; i < tasks.size(); i++) {
-            stb.append(tasks.get(i)).append(String.format(", "));
+            stb.append(tasks.get(i)).append(String.format(" "));
         }
         return stb.toString();
     }

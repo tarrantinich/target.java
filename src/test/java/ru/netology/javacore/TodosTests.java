@@ -55,6 +55,6 @@ public class TodosTests {
         Todos todos = new Todos();
         todos.setTasks(new ArrayList<>(Arrays.asList("Учёба", "Работа", "Спорт", "Акробатика")));
         return Stream.of(
-                Arguments.of(todos, "Акробатика, Работа, Спорт, Учёба"));
+                Arguments.of(todos, "Акробатика Работа Спорт Учёба"));
     }
 }
